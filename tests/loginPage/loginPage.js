@@ -10,6 +10,7 @@ class loginPage {
         this.linkLeftArrow = Selector('.styles_backIconContainer_MhkioW9m8rx70X7CIGuws')
         this.linkNeedHelp = Selector('a').withAttribute('data-qa-id', 'need-help-link')
         this.linkInvalidLogInNeedHelp = Selector('a').withText('Need help?')
+        this.btnLogInWithOrganization = Selector('button').withAttribute('data-qa-id', 'log-in-with-organization-btn')
     }
 
     async login(email, password) {
@@ -42,6 +43,11 @@ class loginPage {
     async clickInvalidLogInNeedHelp() {
         await t
             .click(this.linkInvalidLogInNeedHelp)
+    }
+
+    async clickLogInWithOrganization() {
+        await t
+            .click(this.btnLogInWithOrganization)
     }
 }
 
