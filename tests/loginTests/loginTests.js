@@ -1,4 +1,5 @@
 import { ClientFunction } from 'testcafe'
+import helpPage from '../helpPage/helpPage'
 import homePage from '../homePage/homePage'
 import loginPage from '../loginPage/loginPage'
 import mainPage from '../mainPage/mainPage'
@@ -48,7 +49,7 @@ test
 test
     .meta('testID', 't-0003')
     .meta({ scope: 'regression', severity: 'low', author: 'Justin Braden', creationDate: '04/15/2022' })
-    ('Clicking the left arrow will go to main page', async t => {
+    ('Clicking the left arrow will go to the main page', async t => {
         let mainPageURL = 'https://www.hudl.com/'
 
         await loginPage.clickLeftArrow()
@@ -58,4 +59,19 @@ test
         await t
             .expect(getURL()).eql(mainPageURL)
             .expect(mainPage.btnLogIn.visible).ok()
+    })
+
+test
+    .meta('testID', 't-0004')
+    .meta({ scope: 'regression', severity: 'medium', author: 'Justin Braden', creationDate: '04/15/2022' })
+    ('Clicking the need nelp link will go to the help page', async t => {
+        let helpPageURL = 'https://www.hudl.com/login/help#'
+
+        await loginPage.clickNeedHelp()
+
+        const getURL = ClientFunction(() => document.location.href)
+
+        await t
+            .expect(getURL()).eql(helpPageURL)
+            .expect(helpPage.btnPasswordReset.visible).ok()
     })
