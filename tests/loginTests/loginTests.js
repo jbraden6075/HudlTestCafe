@@ -31,12 +31,27 @@ test
     })
 
 test
-    .meta('testID', 't-0001')
+    .meta('testID', 't-0002')
     .meta({ scope: 'regression', severity: 'low', author: 'Justin Braden', creationDate: '04/15/2022' })
     ('Clicking the Hudl logo will go to the main page', async t => {
         let mainPageURL = 'https://www.hudl.com/'
 
         await loginPage.clickHudlLogo()
+
+        const getURL = ClientFunction(() => document.location.href)
+
+        await t
+            .expect(getURL()).eql(mainPageURL)
+            .expect(mainPage.btnLogIn.visible).ok()
+    })
+
+test
+    .meta('testID', 't-0003')
+    .meta({ scope: 'regression', severity: 'low', author: 'Justin Braden', creationDate: '04/15/2022' })
+    ('Clicking the left arrow will go to main page', async t => {
+        let mainPageURL = 'https://www.hudl.com/'
+
+        await loginPage.clickLeftArrow()
 
         const getURL = ClientFunction(() => document.location.href)
 
