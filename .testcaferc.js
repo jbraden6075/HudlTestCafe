@@ -9,9 +9,10 @@ module.exports = {
     screenshots: {
         path: "artifacts/screenshots/",
         takeOnFails: true,
-        pathPattern: "${DATE}_${TIME}/test-${TEST}/${USERAGENT}/${BROWSER}_{BROWSER_VERSION}.png",
+        pathPattern: "${DATE}_${TIME}/Test - ${TEST}/${USERAGENT}/Test - ${TEST}_${BROWSER}_${BROWSER_VERSION}.png",
         fullPage: true,
-        takeOnFails: true
+        takeOnFails: true,
+        thumbnails: false
     },
     quarantineMode: {
         successThreshold: 1,
