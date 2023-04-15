@@ -1,6 +1,7 @@
 import { ClientFunction } from 'testcafe'
 import homePage from '../homePage/homePage'
 import loginPage from '../loginPage/loginPage'
+import mainPage from '../mainPage/mainPage'
 
 fixture('loginPage')
 
@@ -27,4 +28,19 @@ test
         await t
             .expect(getURL()).eql(homePageURL)
             .expect(userNameInnerText).eql(userName)
+    })
+
+test
+    .meta('testID', 't-0001')
+    .meta({ scope: 'regression', severity: 'low', author: 'Justin Braden', creationDate: '04/15/2022' })
+    ('Clicking the Hudl logo will go to the main page', async t => {
+        let mainPageURL = 'https://www.hudl.com/'
+
+        await loginPage.clickHudlLogo()
+
+        const getURL = ClientFunction(() => document.location.href)
+
+        await t
+            .expect(getURL()).eql(mainPageURL)
+            .expect(mainPage.btnLogIn.visible).ok()
     })
