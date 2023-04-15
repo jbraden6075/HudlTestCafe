@@ -3,6 +3,7 @@ import helpPage from '../helpPage/helpPage'
 import homePage from '../homePage/homePage'
 import loginPage from '../loginPage/loginPage'
 import mainPage from '../mainPage/mainPage'
+import organizationPage from '../organizationPage/organizationPage'
 
 fixture('loginPage')
 
@@ -90,4 +91,19 @@ test
         await t
             .expect(getURL()).eql(helpPageURL)
             .expect(helpPage.btnPasswordReset.visible).ok()
+    })
+
+test
+    .meta('testID', 't-0006')
+    .meta({ scope: 'regression', severity: 'high', author: 'Justin Braden', creationDate: '04/15/2022' })
+    ('Clicking Log In with an Organization goes to the Organization page', async t => {
+        let organizationPageURL = 'https://www.hudl.com/app/auth/login/organization'
+
+        await loginPage.clickLogInWithOrganization()
+
+        const getURL = ClientFunction(() => document.location.href)
+
+        await t
+            .expect(getURL()).eql(organizationPageURL)
+            .expect(organizationPage.btnLogInEmailPassword.visible).ok()
     })
