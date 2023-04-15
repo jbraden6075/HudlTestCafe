@@ -1,6 +1,6 @@
 module.exports = {
     browsers: "chrome",
-    src: "tests/loginTests.js",
+    src: "./tests/**/**.js",
     baseUrl: "https://hudl.com/login",
     reporter: {
         name: "spec",
