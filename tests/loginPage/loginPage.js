@@ -7,6 +7,7 @@ class loginPage {
         this.txtfldPassword = Selector('#password')
         this.btnLogIn = Selector('#logIn')
         this.svgHudlLogo = Selector('svg').withAttribute('data-qa-id', 'hudl-logo')
+        this.linkLeftArrow = Selector('.styles_backIconContainer_MhkioW9m8rx70X7CIGuws')
     }
 
     async login(email, password) {
@@ -19,6 +20,11 @@ class loginPage {
     async clickHudlLogo() {
         await t
             .click(this.svgHudlLogo)
+    }
+
+    async clickLeftArrow() {
+        await t
+            .click(this.linkLeftArrow)
     }
 }
 
