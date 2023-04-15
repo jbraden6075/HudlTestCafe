@@ -9,6 +9,7 @@ class loginPage {
         this.svgHudlLogo = Selector('svg').withAttribute('data-qa-id', 'hudl-logo')
         this.linkLeftArrow = Selector('.styles_backIconContainer_MhkioW9m8rx70X7CIGuws')
         this.linkNeedHelp = Selector('a').withAttribute('data-qa-id', 'need-help-link')
+        this.linkInvalidLogInNeedHelp = Selector('a').withText('Need help?')
     }
 
     async login(email, password) {
@@ -31,6 +32,16 @@ class loginPage {
     async clickNeedHelp() {
         await t
             .click(this.linkNeedHelp)
+    }
+
+    async clickLogIn() {
+        await t
+            .click(this.btnLogIn)
+    }
+
+    async clickInvalidLogInNeedHelp() {
+        await t
+            .click(this.linkInvalidLogInNeedHelp)
     }
 }
 
