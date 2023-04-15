@@ -14,7 +14,7 @@ test
     ('User can successfully login', async t => {
         // Defining data needed for the test
         let email = 'jbraden@protonmail.com'
-        let password = 'techInterview1'
+        let password = '' //Add password value here
         let homePageURL = 'https://www.hudl.com/home'
         let userName = 'Justin B'
 
@@ -122,4 +122,19 @@ test
         await t
             .expect(getURL()).eql(signUpPageURL)
             .expect(signUpPage.btnHighSchools.visible).ok()
+    })
+
+test
+    .meta('testID', 't-0008')
+    .meta({ scope: 'regression', severity: 'critical', author: 'Justin Braden', creationDate: '04/15/2023' })
+    ('Invalid login will display message', async t => {
+        let loginPageURL = 'https://www.hudl.com/login'
+
+        await loginPage.clickLogIn()
+
+        const getURL = ClientFunction(() => document.location.href)
+
+        await t
+            .expect(getURL()).eql(loginPageURL)
+            .expect(loginPage.txtErrorMessage.visible).ok()
     })
