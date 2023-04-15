@@ -44,3 +44,4 @@ test
             .expect(getURL()).eql(mainPageURL)
             .expect(mainPage.btnLogIn.visible).ok()
     })
+    
