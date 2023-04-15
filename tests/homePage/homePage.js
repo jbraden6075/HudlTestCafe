@@ -1,8 +1,8 @@
-import { ClientFunction, Selector } from 'testcafe'
+import { Selector } from 'testcafe'
 
 class homePage {
     constructor () {
-        this.userName = Selector('.hui-globaluseritem__display-name')
+        this.txtUserName = Selector('.hui-globaluseritem__display-name')
     }
 }
 
