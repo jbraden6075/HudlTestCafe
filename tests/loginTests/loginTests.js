@@ -75,3 +75,19 @@ test
             .expect(getURL()).eql(helpPageURL)
             .expect(helpPage.btnPasswordReset.visible).ok()
     })
+
+test
+    .meta('testID', 't-0005')
+    .meta({ scope: 'regression', severity: 'medium', author: 'Justin Braden', creationDate: '04/15/2022' })
+    ('Clicking the invalid login need nelp link will go to the help page', async t => {
+        let helpPageURL = 'https://www.hudl.com/login/help'
+
+        await loginPage.clickLogIn()
+        await loginPage.clickInvalidLogInNeedHelp()
+
+        const getURL = ClientFunction(() => document.location.href)
+
+        await t
+            .expect(getURL()).eql(helpPageURL)
+            .expect(helpPage.btnPasswordReset.visible).ok()
+    })
