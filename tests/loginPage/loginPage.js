@@ -12,6 +12,7 @@ class loginPage {
         this.linkInvalidLogInNeedHelp = Selector('a').withText('Need help?')
         this.btnLogInWithOrganization = Selector('button').withAttribute('data-qa-id', 'log-in-with-organization-btn')
         this.linkSignUp = Selector('a').withText('Sign up')
+        this.txtErrorMessage = Selector('p').withAttribute('data-qa-id', 'error-display')
     }
 
     async login(email, password) {

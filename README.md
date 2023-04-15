@@ -58,7 +58,7 @@ This project demonstrates my aptitude with the TestCafe tool as I am most famila
 - Clicking the Sign up link will navigate to hudl.com/register/signup
 
 ### Negative:
-- Invalid email will display message
+- Invalid login will display message
 
 ## Run Project:
 
